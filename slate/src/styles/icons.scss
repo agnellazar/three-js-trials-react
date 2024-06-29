@@ -1,0 +1,15 @@
+.icon-menu::before {
+    content:'\2630'; 
+}
+
+
+.icon-back::before {
+    content:'\2190'; 
+    // font-size: 2rem;
+    // align-items: center;
+    padding-bottom: 0.5rem;   
+}
+
+.icon-next::before {
+    content: '\2192';
+}
