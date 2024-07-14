@@ -52,7 +52,7 @@ export class ThreeService {
 
     
     async addMainModel(scene) {
-        this.mainModel = await this.threeHelper.loadModel(urls.models.rr2);
+        this.mainModel = await this.threeHelper.loadModel(urls.models.sofa_baisc);
         this.mainModel.position.set(0, 0, 0);
         this.mainModel.scale.set(2, 2, 2);
         scene.add(this.mainModel);
