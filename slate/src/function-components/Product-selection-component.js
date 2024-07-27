@@ -1,5 +1,5 @@
-import { ProductCardComponent } from "./Product-Card-Component";
-
+// import { ProductCardComponent } from "./Product-Card-Component";
+import { ConnProductCardComponent } from "../state-mgmt/connected-components/ConnProductCardComponent";
 import { ProductSelectionService } from "../services/product-selection.service";
 
 import '../../src/styles/product-selection-styles.css'
@@ -14,7 +14,7 @@ export function ProductSelectionComponent() {
             let newProductItems = [];
             for (let i =0; i< productList.length; i++) {
                 const item = productList[i];
-                newProductItems.push(<ProductCardComponent item = {item} key={i}></ProductCardComponent>);
+                newProductItems.push(<ConnProductCardComponent item = {item} key={i}></ConnProductCardComponent>);
             }
             setProductItems(newProductItems);
         });

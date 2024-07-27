@@ -11,7 +11,7 @@ export class ThreeHelper {
     }
 
     addSpotLight(scene) {
-        const light = new THREE.AmbientLight(0xffffff, 5); // soft white light
+        const light = new THREE.AmbientLight(0xf0f0f0, 5); // soft white light
         scene.add(light);
         // const sun = new THREE.DirectionalLight(0xffffff, 3)
         // sun.position.set(2, 3, 2);

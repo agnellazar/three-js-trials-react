@@ -1,9 +1,6 @@
 import * as THREE from 'three';
 import { ThreeHelper } from '../helpers/Three.helper';
 
-import { urls } from '../constants/urls.constants';
-
-
 
 export class ThreeService {
 
@@ -51,18 +48,18 @@ export class ThreeService {
     }
 
     
-    async addMainModel(scene) {
-        this.mainModel = await this.threeHelper.loadModel(urls.models.sofa_baisc);
+    async addMainModel(modelUrl,scene) {
+        this.mainModel = await this.threeHelper.loadModel(modelUrl);
         this.mainModel.position.set(0, 0, 0);
         this.mainModel.scale.set(2, 2, 2);
         scene.add(this.mainModel);
     }
 
-    async createScene() {
+    async createScene(modelUrl) {
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0xffffff);
 
-        await this.addMainModel(this.scene);
+        await this.addMainModel(modelUrl,this.scene);
 
         this.threeHelper.addSpotLight(this.scene);
 
@@ -73,9 +70,11 @@ export class ThreeService {
         this.controls = this.threeHelper.createOrbitControls(this.camera, this.renderer.domElement);
     }
 
-    startRendBox() {
+    startRendBox(renderingContainerId) {
         this.renderer.domElement.id = 'rendering-op';
-        document.body.appendChild( this.renderer.domElement );
+
+        const renderinContainer = document.getElementById(renderingContainerId);
+        renderinContainer.appendChild( this.renderer.domElement );
     
         const thisRef = this;
 
