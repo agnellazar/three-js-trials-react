@@ -4,21 +4,33 @@ body{
 }
 
 #product-list-wrapper {
-    background-color: wheat !important;
     height: auto;
     width: 100%;
-    /* box-shadow: 10px 10px; */
-    /* border-radius: 15px; */
 }
 
 #product-card-wrapper {
-    /* box-shadow: 5px 5px; */
+    background-color: wheat !important;
     border-radius: 15px;
 }
 
 #img-container{
-    
     background-color: white;
     border-radius: 15px;
     box-shadow: 5px 5px;
 }
+
+.product-name{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-desc{
+    text-align: center;
+}
+.product-price{
+    font-size: large;
+    font-weight: bold;
+    text-align: right;
+}
+

@@ -1,9 +1,19 @@
 import '../../src/styles/product-selection-styles.css'
+import { useNavigate } from "react-router-dom"
 
 
 export function ProductCardComponent(props) {
-    const content = <div id="product-card-wrapper" className="row p-4">
-        <div id="img-container" className="col-8 overflow-hidden">
+    
+    const navigate = useNavigate()
+    
+    const handleClick = (item) => {
+        console.log('handle click called');
+        props.setMainModel(item);
+        navigate('/customize');
+    }
+
+    const content = <div id="product-card-wrapper" className="row p-4 m-2">
+        <div id="img-container" className="col-8 overflow-hidden" onClick={()=>{handleClick(props.item)}}>
                 <img src={props.item.displayImg} alt={props.item.id} className="object-fit-contain w-100 h-100"></img>
         </div>
         <div id="desc-container" className="col-4">
@@ -15,8 +25,8 @@ export function ProductCardComponent(props) {
                     <div className='product-desc'>
                         {props.item.desc}
                     </div>
-                    <div className='product-price'>
-                        {props.item.price + '100'}
+                    <div className='product-price pt-5'>
+                        Price: {props.item.price }
                     </div>
                 </div>
             </div>
@@ -25,3 +35,4 @@ export function ProductCardComponent(props) {
 
     return content;
 }
+

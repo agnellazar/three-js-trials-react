@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { routeReducer } from './routeReducer'
+import mainModelSelect from './mainModelSelectReducer';
 
 const rootReducer = combineReducers({
-    counter: routeReducer,
+    mainModelReducer: mainModelSelect
   });
   
-  export default rootReducer;
+export default rootReducer;
