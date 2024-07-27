@@ -1,0 +1,24 @@
+
+body{
+    /* background-color: wheat !important; */
+}
+
+#product-list-wrapper {
+    background-color: wheat !important;
+    height: auto;
+    width: 100%;
+    /* box-shadow: 10px 10px; */
+    /* border-radius: 15px; */
+}
+
+#product-card-wrapper {
+    /* box-shadow: 5px 5px; */
+    border-radius: 15px;
+}
+
+#img-container{
+    
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px;
+}

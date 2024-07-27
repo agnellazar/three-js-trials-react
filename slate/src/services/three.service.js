@@ -58,7 +58,7 @@ export class ThreeService {
         scene.add(this.mainModel);
     }
 
-    async createScene(refContainer) {
+    async createScene() {
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0xffffff);
 
@@ -73,7 +73,8 @@ export class ThreeService {
         this.controls = this.threeHelper.createOrbitControls(this.camera, this.renderer.domElement);
     }
 
-    startRendBox(refContainer) {
+    startRendBox() {
+        this.renderer.domElement.id = 'rendering-op';
         document.body.appendChild( this.renderer.domElement );
     
         const thisRef = this;

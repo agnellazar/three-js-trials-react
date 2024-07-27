@@ -4,7 +4,7 @@ import { OptionSelectionComponent } from "./OptionSelection.component";
 import { ColorSelectionComponent } from "./ColorSelection.component";
 import { HeaderComponent } from "../function-components/header-component";
 import { FooterComponent } from "../function-components/footer-component";
-import { RenderingComponent } from "./Rendering.component";
+import { RenderingComponent } from "../function-components/Rendering.component";
 export class CustomizeComponent extends React.Component {
         page = <div>
             <HeaderComponent/>
