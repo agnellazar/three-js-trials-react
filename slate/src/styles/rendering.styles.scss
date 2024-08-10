@@ -1,4 +1,24 @@
-.canvas-dimensions {
-    width:1000px;
-    height:1000px;   
+.color-selection-dim {
+    bottom: 10vh;
+    left: 10vw;
+    height: 10vh;
+    width: 80vw;
+}
+
+.color-selection-backdrop {
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(3, 3, 3);
+    opacity: 0.2;
+    position: absolute;
+    border-radius: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    z-index: -1;
+
+}
+
+.color-show-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
 }

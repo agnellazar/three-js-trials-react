@@ -12,12 +12,6 @@ export function FooterComponent() {
                 <span className="icon-back"> Back </span>
             </Link>
         </button>
-
-        <button className="btn btn-primary m-1">
-            <Link to="/customize">
-                Next<span className="icon-next"></span>
-            </Link>
-        </button>
         </div>
     </div>
     return page;

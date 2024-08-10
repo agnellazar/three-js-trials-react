@@ -7,7 +7,6 @@ export function ProductCardComponent(props) {
     const navigate = useNavigate()
     
     const handleClick = (item) => {
-        console.log('handle click called');
         props.setMainModel(item);
         navigate('/customize');
     }

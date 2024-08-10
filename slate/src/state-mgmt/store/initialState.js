@@ -2,6 +2,9 @@ const initialState = {
     route: {
         path : ''
     },
-    mainModel: null
+    selectedModelDetails: {
+        model: null,
+        variant: null
+    }
 }
 export default initialState;
