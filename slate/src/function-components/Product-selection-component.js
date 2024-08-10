@@ -1,8 +1,8 @@
-// import { ProductCardComponent } from "./Product-Card-Component";
-import { ConnProductCardComponent } from "../state-mgmt/connected-components/ConnProductCardComponent";
+import { ConnProductCardComponent } from "../state-mgmt/connected-components/ConnProductCard.component";
 import { ProductSelectionService } from "../services/product-selection.service";
 
 import '../../src/styles/product-selection-styles.css'
+import '../styles/general.scss'
 import { useEffect, useState } from "react";
 const productSelectionService = new ProductSelectionService();
 export function ProductSelectionComponent() {
@@ -22,8 +22,12 @@ export function ProductSelectionComponent() {
 
 
     const content = 
-    <div id="product-list-wrapper" className="container  p-4">
-        {productItems}
+    <div>
+        <div className="header-spacer"></div>
+        <div id="product-list-wrapper" className="container  p-4">
+            {productItems}
+        </div>
+        <div className="footer-spacer"></div>
     </div>
 
     return content

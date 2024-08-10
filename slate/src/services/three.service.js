@@ -6,38 +6,36 @@ export class ThreeService {
 
     threeHelper = new ThreeHelper();
 
-    // cameraZ = 400;
     fieldOfView = 1;
     nearClippingPane = 1;
     farClippingPane = 1000;
     cameraPosition = [0,0,400];
 
-    // private camera !: THREE.PerspectiveCamera;
     camera;
 
     material = new THREE.MeshToonMaterial();
-    // material = new THREE.TextureLoader().load("https://threejs.org/examples/textures/uv_grid_opengl.jpg");
 
-    geometry = new THREE.BoxGeometry(2, 2, 1);
-    cube = new THREE.Mesh(this.geometry, this.material);
     renderer;
     scene;
     canvasRef;
 
+    oldVariantModel;
 
 
-
-
-    addChangingModel(scene, index) {
-        scene.add(this.modelsList[index]);
-    }
-
-    removeChangeingModel(scene, index) {
-        this.scene.remove(this.modelsList[index]);
+    async changeVariant(newVariantDetails) {
+        const oldVariantModelSaved = this.oldVariantModel;
+        await this.addVariant(newVariantDetails);
+        this.removeModel(oldVariantModelSaved);
     }
 
 
+    removeModel(model) {
+        this.scene.remove(model);
+    }
 
+    async addVariant(variantDetails) {
+        this.oldVariantModel = await this.addModel(variantDetails.modelUrl, this.scene);
+    }
     async changeColor(model) {
         // const sofa = model.children[0].getObjectByName('Fermoy_Sofa')
         const sofa = model;
@@ -47,19 +45,33 @@ export class ThreeService {
         return model;
     }
 
-    
-    async addMainModel(modelUrl,scene) {
-        this.mainModel = await this.threeHelper.loadModel(modelUrl);
-        this.mainModel.position.set(0, 0, 0);
-        this.mainModel.scale.set(2, 2, 2);
-        scene.add(this.mainModel);
+    async addModels( modelUrls, scene ) {
+        modelUrls.forEach(modelUrl => {
+            this.addModel(modelUrl, scene);
+        });
     }
 
-    async createScene(modelUrl) {
-        this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xffffff);
+    async addModel(modelUrl, scene) {
+        let model = await this.threeHelper.loadModel(modelUrl);
+        model.position.set(0, 0, 0);
+        model.scale.set(1, 1, 1);
+        scene.add(model);
+        return model;
+    }
 
-        await this.addMainModel(modelUrl,this.scene);
+    getUrlList(models) {
+        return models.map((model) => model.modelUrl);
+    }
+
+    async createScene(selectedModelDetails) {
+        this.scene = new THREE.Scene();
+        this.scene.background = new THREE.Color(0xf0ffff);
+        // this.scene.background = new THREE.Color(0x0000ff);
+
+        const commonModels = this.getUrlList(selectedModelDetails.model.common);
+        await this.addModels(commonModels, this.scene);
+
+        // await this.addModel(selectedModelDetails.variant.modelUrl, this.scene);
 
         this.threeHelper.addSpotLight(this.scene);
 

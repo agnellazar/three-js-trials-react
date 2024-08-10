@@ -4,7 +4,7 @@ import '../styles/header-styles.scss'
 import '../styles/general.scss'
 import '../styles/icons.scss'
 export function HeaderComponent() {
-    const page = <div className="navbar navbar-height overflow-hidden p-0 m-0">
+    const page = <div className="navbar navbar-height navbar-style overflow-hidden p-0 m-0">
             <button className="navbar-height p-0 m-0 border-0 bg-transparent">
                 <img src={logo} alt="logo not found" className="navbar-height p-0 m-0"></img>
             </button>

@@ -11,7 +11,7 @@ export class ThreeHelper {
     }
 
     addSpotLight(scene) {
-        const light = new THREE.AmbientLight(0xf0f0f0, 5); // soft white light
+        const light = new THREE.AmbientLight(0xffffff, 5); // soft white light
         scene.add(light);
         // const sun = new THREE.DirectionalLight(0xffffff, 3)
         // sun.position.set(2, 3, 2);
@@ -28,13 +28,10 @@ export class ThreeHelper {
         // meshPhongMaterial.color = new THREE.Color(0xffffff)
         // meshPhongMaterial.map = texturePng;
 
-        console.log('model in apply texture', model);
-        console.log('children got', model);
         const sofa = model;
 
         sofa.children.forEach(cMesh => {
             if (cMesh.name === "Pillow_side") {
-                console.log('pillow found');
                 cMesh.material.map = pillowTexture;
                 cMesh.material.color = new THREE.Color(0xffffff);
             }
@@ -78,7 +75,7 @@ export class ThreeHelper {
 
     createRenderer() {
         const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth*0.8, window.innerHeight*0.8);
+        renderer.setSize(window.innerWidth, window.innerHeight*0.8);
         return renderer;
     }
 

@@ -1,6 +1,6 @@
 
 body{
-    /* background-color: wheat !important; */
+    background-color: azure!important;
 }
 
 #product-list-wrapper {
@@ -11,12 +11,15 @@ body{
 #product-card-wrapper {
     background-color: wheat !important;
     border-radius: 15px;
+
 }
 
 #img-container{
     background-color: white;
     border-radius: 15px;
-    box-shadow: 5px 5px;
+    /* box-shadow: 5px 5px 3px 3px rgb(46, 46, 46); */
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
 }
 
 .product-name{
@@ -28,6 +31,7 @@ body{
 .product-desc{
     text-align: center;
 }
+
 .product-price{
     font-size: large;
     font-weight: bold;

@@ -8,15 +8,25 @@ export function RenderingComponent(props) {
     const renderingContainerId = "rendering-container";
     useEffect(
         () => {
-            console.log('props in rendering comp',props)
-            startRendering(renderingContainerId,props.item?.modelUrl);
+            startRendering(renderingContainerId, props.selectedModelDetails);
+        },[props.selectedModelDetails.model]
+    );
+
+    useEffect(
+        () => {
+            changeVariant(props.selectedModelDetails.variant);
         },
-        // []
-        );
+        [props.selectedModelDetails.variant]
+    )
     return <div id={renderingContainerId}></div>;
 }
 
-async function startRendering(renderingContainerId,modelUrl) {
-    await threeService.createScene(modelUrl);
+async function startRendering(renderingContainerId,selectedModelDetails) {
+    await threeService.createScene(selectedModelDetails);
     threeService.startRendBox(renderingContainerId);
+}
+
+
+async function changeVariant(newVariantDetails) {
+    await threeService.changeVariant(newVariantDetails);
 }
